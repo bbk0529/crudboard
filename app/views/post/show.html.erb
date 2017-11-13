@@ -1,0 +1,25 @@
+<h1><%=@post.id%> 번째 글 </h1>
+<p>Find me in app/views/post/show.html.erb</p>
+
+글쓴이 : <%=@post.user.email%> <br/>
+제목 : <%=@post.title%> <br/>
+내용 : <%=@post.content%> <br/>
+<hr/>
+<form action="/post/create_comment">
+  <input type="hidden" name="post_id" value="<%=@post.id%>">
+  이름 <input type="text" name="name">
+  댓글 <input type="text" name="comment">
+
+  <input type="submit">
+
+
+
+</form>
+
+<% @comments.each do |c| %>
+<p><%=c.name%>_<%=c.comment%></p>
+<% end %>
+
+<a href="/post/modify/<%=@post.id%>"> 수정 </a>
+<a href="/post/destroy/<%=@post.id%>"> 삭제 </a>
+<a href="/"> HOME </a>

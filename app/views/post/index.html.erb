@@ -1,0 +1,12 @@
+<h1>Post#index</h1>
+<p>Article List</p>
+
+
+<% @posts.each do |post|%>
+
+<%=post.id%>  <%=post.title%>  <a href="/post/show/<%= post.id %>" > [보기] </a> <br/>
+
+<!-- 내용 : <%=post.content%>  -->
+
+
+<% end %>
